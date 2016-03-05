@@ -31,15 +31,6 @@
             android:label="@string/app_name" >
         </activity>
         
-        <activity
-            android:name=".asynctask.BuscarNomeAsynctask">
-        </activity>
-        
-        <activity
-            android:name=".listener.BuscarNomeListener">
-        </activity>
-        
-        
     </application>
 
 </manifest>

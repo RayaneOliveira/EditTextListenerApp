@@ -53,10 +53,13 @@ public class PessoasCustomAdapter extends BaseAdapter {
         holder.txtInscription.setText(pessoaItem.getDescricao());
         holder.txtEmail.setText(pessoaItem.getEmail());
         
-        if (pessoaItem.isEntregue()== false){
-        	holder.txtEntregue.setText("Não Entregue");
+        if (pessoaItem.isEntregue()== true){
+        	
+        	holder.txtEntregue.setText("Entregue");
+        	
         } else 
-        	holder.txtEntregue.setText("Entregue");              
+        	
+        	holder.txtEntregue.setText("Não Entregue");              
          
         return convertView;
     }

@@ -15,6 +15,8 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,13 +72,13 @@ public class BuscarNomeActivity extends Activity
         Log.i("EditTextListener", "onTextChanged: " + charSequence);
         String nome = charSequence.toString();
 
-        // Consultar o servidor. Criar o JSONObject e uma AsyncTask<JSONObject, Void, Response>
         try {
 
             if (nome.length() >= TAMANHO_MINIMO_TEXTO) {
-                // JSON
+            	
                 JSONObject json = new JSONObject();
                 json.put("fullName", nome);
+                
                 BuscarNomeAsyncTask buscarNomeAsyncTask = new BuscarNomeAsyncTask(this);
                 buscarNomeAsyncTask.execute(json);
             }

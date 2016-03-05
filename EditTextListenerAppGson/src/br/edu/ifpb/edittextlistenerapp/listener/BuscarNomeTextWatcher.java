@@ -18,8 +18,6 @@ public class BuscarNomeTextWatcher implements TextWatcher {
     @Override
     public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
         Log.i("EditTExtListener","onTextChanged: " + charSequence);
-
-
     }
 
     @Override
