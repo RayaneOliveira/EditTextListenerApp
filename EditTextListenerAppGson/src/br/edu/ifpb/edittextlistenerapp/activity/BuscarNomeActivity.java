@@ -12,13 +12,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.google.gson.Gson;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import br.edu.ifpb.edittextlistenerapp.R;
 import br.edu.ifpb.edittextlistenerapp.adapter.PessoasCustomAdapter;

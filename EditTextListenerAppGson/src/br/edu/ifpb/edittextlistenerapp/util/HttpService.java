@@ -3,8 +3,6 @@ package br.edu.ifpb.edittextlistenerapp.util;
 
 import android.util.Log;
 
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -13,6 +11,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import org.json.JSONObject;
 
 /**
  * Created by Rhavy on 14/12/2015.
@@ -39,7 +39,7 @@ public class HttpService {
         return connection;
     }
 
-    public static Response sendJSONPostResquest(String service, JSONObject jsonObject)
+    public static Response sendJSONPostResquest(String service, JSONObject json)
             throws MalformedURLException, IOException {
 
         HttpURLConnection connection = null;
@@ -58,7 +58,7 @@ public class HttpService {
 
         DataOutputStream stream = new DataOutputStream(connection.getOutputStream());
 
-        stream.writeBytes(jsonObject.toString());
+        stream.writeBytes(json.toString());
         stream.flush();
         stream.close();
 

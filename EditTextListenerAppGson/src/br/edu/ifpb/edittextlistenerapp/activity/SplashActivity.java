@@ -14,7 +14,7 @@ public class SplashActivity extends Activity implements Runnable {
 
     ImageView imageView;
 
-    private static final long SPLASH_TIME_OUT = 7000;
+    private static final long SPLASH_TIME_OUT = 6000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -7,14 +7,12 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.json.JSONObject;
 
 import br.edu.ifpb.edittextlistenerapp.callback.BuscarPessoaCallBack;
 import br.edu.ifpb.edittextlistenerapp.entidade.Pessoa;

@@ -9,8 +9,7 @@ import java.io.Serializable;
  * Created by Rhavy on 27/02/2016.
  */
 public class Pessoa implements Serializable {
-
-
+	
     public Pessoa (String nome, String descricao, String email, boolean entregue, int id) {
         this.nome = nome;
         this.descricao = descricao;
