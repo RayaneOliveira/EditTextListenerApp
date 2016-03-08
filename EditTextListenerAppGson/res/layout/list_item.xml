@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/fullName"
         android:paddingLeft="10dp"
-        android:textColor="#3399FF"
+        android:textColor="#FFB6C1"
         android:textSize="14dp" />
     
     <TextView
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/inscription"
         android:paddingLeft="10dp"
-        android:textColor="#3399FF"
+        android:textColor="#FFB6C1"
         android:textSize="14dp" />
     
     <TextView
@@ -35,6 +35,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/email"
         android:paddingLeft="10dp"
-        android:textColor="#3399FF"
+        android:textColor="#FFB6C1"
         android:textSize="14dp" />
 </RelativeLayout>

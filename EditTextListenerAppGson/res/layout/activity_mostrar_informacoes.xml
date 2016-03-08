@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/fundo1">
+    
+   <TextView
+        android:id="@+id/textNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/nome"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="100dp"
+        android:text="Nome: "
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="30dp"
+        android:text="nome"/>
+    
+    <TextView
+        android:id="@+id/textEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/email"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="70dp"
+        android:text="Email: "
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nome"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="70dp"
+        android:text="email"/>
+    
+    <TextView
+        android:id="@+id/textInscricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="10dp"
+        android:text="Tipo de Inscrição: "
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/inscricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/entregue"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="70dp"
+        android:text="inscrição"/>
+
+    <TextView
+        android:id="@+id/textEntrega"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inscricao"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="70dp"
+        android:text="Status de entrega: "
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/entregue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="70dp"
+        android:text="entregue/não entregue" />
+
+</LinearLayout>

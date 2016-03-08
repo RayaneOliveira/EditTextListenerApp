@@ -1,6 +1,7 @@
 package br.edu.ifpb.edittextlistenerapp.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,8 +16,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.Gson;
 
 import br.edu.ifpb.edittextlistenerapp.R;
 import br.edu.ifpb.edittextlistenerapp.adapter.PessoasCustomAdapter;
@@ -42,7 +42,7 @@ public class BuscarNomeActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar_nome);
 
-        // Recuperando o EditText e
+        // Recuperando o EditText e ListView.
         nomeEditText = (EditText) findViewById(R.id.nomeEditText);
         nomeEditText.addTextChangedListener(this);
 
@@ -69,22 +69,19 @@ public class BuscarNomeActivity extends Activity
 
         Log.i("EditTextListener", "onTextChanged: " + charSequence);
         String nome = charSequence.toString();
+        Pessoa pessoa = new Pessoa();
+		pessoa.setNome(nome);
 
-        try {
-
-            if (nome.length() >= TAMANHO_MINIMO_TEXTO) {
-            	
-                JSONObject json = new JSONObject();
-                json.put("fullName", nome);
-                
-                BuscarNomeAsyncTask buscarNomeAsyncTask = new BuscarNomeAsyncTask(this);
-                buscarNomeAsyncTask.execute(json);
-            }
-
-        } catch (JSONException e) {
-
-            Log.e("EditTextListener", e.getMessage());
-        }
+        if (nome.length() >= TAMANHO_MINIMO_TEXTO) {
+			
+			// Converte objeto Java para JSON por meio da biblioteca Gson e aciona AsyncTask.
+			
+			Gson gson = new Gson();
+			String json = gson.toJson(pessoa);
+		    
+		    BuscarNomeAsyncTask buscarNomeAsyncTask = new BuscarNomeAsyncTask(this);
+		    buscarNomeAsyncTask.execute(json);
+		}
     }
 
     @Override
@@ -93,20 +90,34 @@ public class BuscarNomeActivity extends Activity
         Log.i("EditTextListener","afterTextChanged: " + editable);
     }
 
-    // OnItemClickListener
+    // OnItemClickListener.
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position,
-                            long id) {
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    	
+    	Pessoa pessoa = new Pessoa();
+		pessoa = pessoas.get(position);
+		adapter.getItem(position);
+	   
+		// Aciona a próxima activity responsável por Mostrar as informações.
+		Intent intent = new Intent(this, MostrarInformacoesActivity.class);
+		Bundle informacoes = new Bundle();
+		
+		informacoes.putString("Nome", pessoa.getNome());
+		informacoes.putString("Email", pessoa.getEmail());
+		informacoes.putString("Inscricao", pessoa.getDescricao());
+		informacoes.putBoolean("Entregue", pessoa.isEntregue());
+		intent.putExtras(informacoes);
+		
+		startActivity(intent);
 
         Log.i("EditTextListener", "Position: " + position);
 
-        Toast toast = Toast.makeText(this,
-                "Item " + (position + 1) + ": " + pessoas.get(position),
-                Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(this, "Item " + (position + 1) + ": " 
+        							 + pessoas.get(position), Toast.LENGTH_LONG);
         toast.show();
     }
 
-    // BuscarPessoaCallBack
+    // BuscarPessoaCallBack. 
     @Override
     public void backBuscarNome(List<Pessoa> pessoas) {
 
@@ -115,6 +126,7 @@ public class BuscarNomeActivity extends Activity
         adapter.notifyDataSetChanged();
     }
 
+    // BuscarPessoaCallBack. 
     @Override
     public void errorBuscarNome(String error) {
 

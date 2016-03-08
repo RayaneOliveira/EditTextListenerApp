@@ -17,6 +17,10 @@ public class Pessoa implements Serializable {
         this.entregue = entregue;
         this.id = id;
     }
+    
+    public Pessoa(){
+    	
+    }
 
 	@SerializedName("id")
     private int id;

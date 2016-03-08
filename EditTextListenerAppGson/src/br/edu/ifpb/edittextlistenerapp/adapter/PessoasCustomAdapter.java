@@ -79,7 +79,7 @@ public class PessoasCustomAdapter extends BaseAdapter {
         return pessoas.indexOf(getItem(position));
     }
 
-    /*private view holder class*/
+    //private view holder class.
     private class ViewHolder {
 
         TextView txtFullName;

@@ -12,8 +12,6 @@ import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONObject;
-
 import br.edu.ifpb.edittextlistenerapp.callback.BuscarPessoaCallBack;
 import br.edu.ifpb.edittextlistenerapp.entidade.Pessoa;
 import br.edu.ifpb.edittextlistenerapp.util.HttpService;
@@ -22,7 +20,7 @@ import br.edu.ifpb.edittextlistenerapp.util.Response;
 /**
  * Created by Rhavy on 24/02/2016.
  */
-public class BuscarNomeAsyncTask extends AsyncTask<JSONObject, Void, Response> {
+public class BuscarNomeAsyncTask extends AsyncTask<String, Void, Response> {
 
     private BuscarPessoaCallBack buscarNomeCallBack;
 
@@ -32,11 +30,11 @@ public class BuscarNomeAsyncTask extends AsyncTask<JSONObject, Void, Response> {
     }
 
     @Override
-    protected Response doInBackground(JSONObject... jsons) {
+    protected Response doInBackground(String... jsons) {
 
         Response response = null;
 
-        JSONObject json = jsons[0];
+        String json = jsons[0];
         Log.i("EditTextListener", "doInBackground (JSON): " + json);
 
         try {
@@ -64,7 +62,8 @@ public class BuscarNomeAsyncTask extends AsyncTask<JSONObject, Void, Response> {
             buscarNomeCallBack.errorBuscarNome(response.getContentValue());
 
         } else {
-
+        	
+        	// Converte String JSON para objeto Java por meio da biblioteca Gson.
             Gson gson = new Gson();
             List<Pessoa> pessoas = gson.fromJson(response.getContentValue(),
                     new TypeToken<ArrayList<Pessoa>>(){}.getType());

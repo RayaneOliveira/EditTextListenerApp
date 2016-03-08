@@ -3,5 +3,6 @@
 
     <string name="app_name">EditTextListenerAppGson</string>
     <string name="activity_splash">SplashActivity</string>
+    <string name="activity_mostrar">MostrarInformacoesActivity</string>
 
 </resources>

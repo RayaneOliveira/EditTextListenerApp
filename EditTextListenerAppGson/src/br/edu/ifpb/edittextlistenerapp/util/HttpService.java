@@ -22,7 +22,7 @@ import org.json.JSONObject;
  */
 public class HttpService {
 
-    // IP da máquina onde se encontra o servidor. response
+    // IP da máquina onde se encontra o servidor response.
     private static final String URL_CONTEXT = "http://ladoss.com.br:8773/pesquisa-simpif-service/services/";
 
     public static HttpURLConnection sendGetRequest(String service)
@@ -39,7 +39,7 @@ public class HttpService {
         return connection;
     }
 
-    public static Response sendJSONPostResquest(String service, JSONObject json)
+    public static Response sendJSONPostResquest(String service, String json)
             throws MalformedURLException, IOException {
 
         HttpURLConnection connection = null;
